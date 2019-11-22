@@ -29,6 +29,7 @@ function getName(character) {
  * Sample data expected output: 5
  */
 function getFilmCount(character) {
+  return character.films.length
   // TODO: Add your code inside the functions (others below).
 
 }
@@ -42,8 +43,16 @@ function getFilmCount(character) {
  * If length is 0. Return 'none'
 */
 function getSecondStarshipName(character) {
-  // TODO: Add your code here.
+  if(character.starships.length === 0){
+    return 'none'
+  } else if (character.starships[1].name.length===0){
+    return 'none'
+  }else{
+   return character.starships[1].name
+  }  
+  
 }
+
 
 /**
  * ### Challenge `getSummary`
@@ -55,6 +64,9 @@ function getSecondStarshipName(character) {
  *    Result: `Luke Skywalker, 172cm, 77kg. Featured in 5 films.`
  */
 function getSummary(character) {
+  return character.name + ', ' + character.height + 'cm' + ', ' + character.mass + 'kg' 
+  + '.' + ' ' + 'Featured in ' + character.films.length + ' films.'
+
   // TODO: Add your code here.
 }
 
@@ -67,6 +79,16 @@ function getSummary(character) {
  * Sample data expected output: 8000
 */
 function getVehiclesCostInCreditsSumTotal(character) {
+  let Sum = 0;
+  
+  for(var i = 0; i < character.vehicles.length; i++){
+    if(character.vehicles[i].cost_in_credits === null){
+      Sum = 0 + Sum
+    }else{
+      Sum = character.vehicles[i].cost_in_credits + Sum 
+    }
+  }
+  return Sum
   // TODO: Add your code here.
 }
 
@@ -81,6 +103,11 @@ function getVehiclesCostInCreditsSumTotal(character) {
  * Sample data expected output: 27
 */
 function getStarshipPassengerAndCrewSumTotal(character) {
+  let sum = 0;
+  for(var i=0; i < character.starships.length; i++){
+    sum = character.starships[i].crew + character.starships[i].passengers + sum
+ }
+ return sum
   // TODO: Add your code here.
 }
 
@@ -98,6 +125,7 @@ function getStarshipPassengerAndCrewSumTotal(character) {
  * Given film #7, expected error: `There are only 3 Star Wars movies. Flan fiction excluded.`
 */
 function getNthFilm(character, filmNumber) {
+  
   // TODO: Add your code here.
 }
 
